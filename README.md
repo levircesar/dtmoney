@@ -16,3 +16,9 @@ yarn create react-app dtmoney --template typescript
 ```
 yarn add miragejs
 ```
+
+### dicas
+pacote para manipulacao de cores em javascript
+```
+yarn add polished
+```
