@@ -5,6 +5,8 @@ import { useState } from "react";
 import { NewTransactionModal } from "./components/NewTransactionModal";
 import { TransactionsProvider } from "./hooks/useTransactions";
 import { GlobalStyle } from "./styles/global";
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 Modal.setAppElement('#root');
 
 export function App() {
@@ -27,6 +29,7 @@ export function App() {
         onRequestClose={handleCloseNewTranscationModal}
       />
       <GlobalStyle />
+      <ToastContainer />
     </TransactionsProvider>
   );
 }

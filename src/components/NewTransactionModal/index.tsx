@@ -5,7 +5,7 @@ import incomeImg from "../../assets/income.svg";
 import outcomeImg from "../../assets/outcome.svg";
 import { useTransactions } from "../../hooks/useTransactions";
 import { Container, RadioBox, TransactionTypeContainer } from "./styles";
-
+import { toast } from 'react-toastify'
 interface NewTransactionModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
@@ -23,6 +23,11 @@ export function NewTransactionModal({
 
   async function handleCreateNewTransaction(event: FormEvent) {
     event.preventDefault();
+
+    if(title === '' || amount === 0 || category === ''){
+      toast.warn('Preencha todos os campos')
+      return;
+    }
     
     await createTransaction({
       title,
@@ -30,7 +35,7 @@ export function NewTransactionModal({
       category,
       type
     })
-
+    toast.success('Adicionado com sucesso')
     onRequestClose();
     setTitle('');
     setAmount(0);

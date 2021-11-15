@@ -55,8 +55,8 @@ export function TransactionsProvider({ children }: TransactionsProviderProps){
     const newResponse = response.data;
 
     setTransactions([
-      ...transactions,
       newResponse.transactions,
+      ...transactions
     ])
   }
 

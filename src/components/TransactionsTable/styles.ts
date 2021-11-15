@@ -37,3 +37,26 @@ export const Container = styled.div`
   }
 
 `
+export const Pagination = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2{
+   color: var(--text-body);
+  }
+
+  button{
+    background: var(--shape);
+    padding: 1rem 2.5rem;
+    border: 0;
+    color: var(--text-title);
+    margin: 1rem;
+
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+
+`
