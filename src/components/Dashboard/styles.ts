@@ -11,4 +11,9 @@ export const Grid = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   padding: 3rem 0;
+
+  @media screen and (max-width: 680px){
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `

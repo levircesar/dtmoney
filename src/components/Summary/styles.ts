@@ -36,4 +36,8 @@ export const Container = styled.div`
       color: #FFF;
     }
   }
+
+  @media screen and (max-width: 680px){
+    overflow-y: auto;
+  }
 `

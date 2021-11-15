@@ -36,6 +36,10 @@ export const Container = styled.div`
     }
   }
 
+  @media screen and (max-width: 680px){
+    overflow-y: auto;
+  }
+
 `
 export const Pagination = styled.div`
   display: flex;
