@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  margin-top: 4rem;
+  margin-top: 1rem;
 
   table{
     width: 100%;
@@ -40,27 +40,6 @@ export const Container = styled.div`
     overflow-y: auto;
   }
 
-`
-export const Pagination = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  h2{
-   color: var(--text-body);
-  }
-  button{
-    background: var(--shape);
-    padding: 1rem 2.5rem;
-    border: 0;
-    color: var(--text-title);
-    margin: 1rem;
-
-    transition: filter 0.2s;
-
-    &:hover {
-      filter: brightness(0.9);
-    }
-  }
 `
 
 export const DeleteButton = styled.button`

@@ -17,3 +17,26 @@ export const Grid = styled.div`
     flex-direction: column-reverse;
   }
 `
+
+export const Pagination = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  h2{
+   color: var(--text-body);
+  }
+  button{
+    background: var(--shape);
+    padding: 1rem 2.5rem;
+    border: 0;
+    color: var(--text-title);
+    margin: 1rem;
+
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+`
