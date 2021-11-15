@@ -30,6 +30,7 @@ export function TransactionsTable(){
                 {new Intl.DateTimeFormat('pt-BR').format(
                   new Date(transaction.createdAt)
                 )}
+                {/* {transaction.createdAt} */}
               </td>
             </tr>
           ))}
