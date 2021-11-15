@@ -52,11 +52,11 @@ export function TransactionsProvider({ children }: TransactionsProviderProps){
       ...transactionInput,
       createdAt: new Date(),
     })
-    const { transaction } = response.data;
+    const newResponse = response.data;
 
     setTransactions([
       ...transactions,
-      transaction,
+      newResponse.transactions,
     ])
   }
 
