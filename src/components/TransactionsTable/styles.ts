@@ -44,7 +44,6 @@ export const Pagination = styled.div`
   h2{
    color: var(--text-body);
   }
-
   button{
     background: var(--shape);
     padding: 1rem 2.5rem;
@@ -58,5 +57,13 @@ export const Pagination = styled.div`
       filter: brightness(0.9);
     }
   }
+`
 
+export const DeleteButton = styled.button`
+  background: none;
+  border: 0;
+  color: var(--text-title);
+  svg{
+    font-size: 1.2rem;
+  }
 `

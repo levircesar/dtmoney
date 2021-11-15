@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState, ReactNode, useContext } from 'react'
+import { toast } from 'react-toastify';
 import { api } from '../services/api';
 
 
@@ -19,6 +20,7 @@ interface TransactionsProviderProps {
 interface TransactionsContextData {
   transactions: Transaction[];
   createTransaction: (transaction: TransactionInput) => Promise<void>;
+  deleteTransaction: (transactionID: any) => Promise<void>;
 }
 
 // interface TransactionInput {
@@ -39,11 +41,11 @@ const TransactionsContext = createContext<TransactionsContextData>(
 export function TransactionsProvider({ children }: TransactionsProviderProps){
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   
+  async function fetchMyAPI() {
+    await api.get('transactions')
+     .then(response => setTransactions(response.data.transactions)); 
+   }
   useEffect(() => {
-      async function fetchMyAPI() {
-       await api.get('transactions')
-        .then(response => setTransactions(response.data.transactions)); 
-      }
       fetchMyAPI()
   }, [])
 
@@ -60,8 +62,19 @@ export function TransactionsProvider({ children }: TransactionsProviderProps){
     ])
   }
 
+  async function deleteTransaction(transactionId : number){
+    if(window.confirm('Deseja deletar?')){
+      await api.delete(`/transactions/${transactionId}`).then(() => {
+        toast.success('Deletado com sucesso')
+      })
+    }else{
+      toast.error('Cancelado')
+    }
+    fetchMyAPI()
+  }
+
   return (
-    <TransactionsContext.Provider value={{ transactions, createTransaction }}>
+    <TransactionsContext.Provider value={{ transactions, createTransaction , deleteTransaction }}>
       {children}
     </TransactionsContext.Provider>
   )

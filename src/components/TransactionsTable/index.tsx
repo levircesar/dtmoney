@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useTransactions } from "../../hooks/useTransactions";
-import { Container, Pagination } from "./styles";
+import { Container, DeleteButton, Pagination } from "./styles";
+import { FaTrashAlt } from 'react-icons/fa'
 
 export function TransactionsTable(){
-  const {transactions } = useTransactions();
+  const {transactions, deleteTransaction } = useTransactions();
   const [page, setPage] = useState(1)
   const maxPage = Math.ceil(transactions.length / 5)
 
@@ -59,6 +60,11 @@ export function TransactionsTable(){
                   new Date(transaction.createdAt)
                 )}
                 {/* {transaction.createdAt} */}
+              </td>
+              <td>
+                <DeleteButton onClick={()=>deleteTransaction(transaction.id)}>
+                  <FaTrashAlt />
+                </DeleteButton>
               </td>
             </tr>
           ))}
